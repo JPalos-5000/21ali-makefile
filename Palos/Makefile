@@ -1,8 +1,12 @@
+@@@@
+Makefile
 #Makefile
-gcc: teclado
-teclado: teclado.o
-	ld -o $@ $+
-teclado.o: teclado.s
-	as -g -mfpu=vfpv2 -o $@ $+
+all:      teclado
+teclado:        teclado.o
+        ld -o  teclado.o teclado.s
+
+teclado.o:      teclado.s
+        as -o  teclado.o teclado.s
+#regla implicita
 clean:
-	rm -vf teclado *.o
+        rm -vf numeros*.o
